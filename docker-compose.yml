@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:15
+    container_name: csf-rating-db
+    environment:
+      POSTGRES_DB: csf_rating
+      POSTGRES_USER: csf_user
+      POSTGRES_PASSWORD: csf_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: csf-rating-app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://csf_user:csf_pass@db:5432/csf_rating
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:
