@@ -3,9 +3,9 @@ services:
     image: postgres:15
     container_name: csf-rating-db
     environment:
-      POSTGRES_DB: csf_rating
-      POSTGRES_USER: csf_user
-      POSTGRES_PASSWORD: csf_pass
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -17,9 +17,20 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql://csf_user:csf_pass@db:5432/csf_rating
+      DATABASE_URL: ${DATABASE_URL}
     ports:
       - "8000:8000"
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: csf-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
 
 volumes:
   postgres_data:
