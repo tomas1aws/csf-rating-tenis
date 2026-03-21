@@ -32,6 +32,16 @@ jobs:
         run: |
           python -c "import app.main; print('App OK')"
 
+      - name: Login a Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build de Docker
         run: |
-          docker build -t csf-rating-tenis .
+          docker build -t tomas1aws/csf-rating-tenis:latest .
+
+      - name: Push a Docker Hub
+        run: |
+          docker push tomas1aws/csf-rating-tenis:latest
