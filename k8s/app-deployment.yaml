@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csf-rating-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csf-rating-app
+  template:
+    metadata:
+      labels:
+        app: csf-rating-app
+    spec:
+      containers:
+        - name: csf-rating-app
+          image: tomas1aws/csf-rating-tenis:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              value: postgresql://csf_user:csf_pass@csf-rating-db:5432/csf_rating
