@@ -4,6 +4,16 @@ Backend para gestión de jugadores y cálculo de ranking dinámico de tenis, uti
 
 ---
 
+## Run locally
+
+docker compose up --build
+
+Access:
+- API → http://localhost:8000/docs  
+- pgAdmin → http://localhost:5050  
+
+---
+
 ## Stack
 
 - Backend: FastAPI (Python)
