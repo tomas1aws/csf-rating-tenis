@@ -19,4 +19,4 @@ spec:
             - containerPort: 8000
           env:
             - name: DATABASE_URL
-              value: postgresql://csf_user:csf_pass@csf-rating-db:5432/csf_rating
+              value: postgresql://your_user:your_password@csf-rating-db:5432/your_db
