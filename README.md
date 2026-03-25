@@ -2,7 +2,9 @@
 
 Backend para gestión de jugadores y cálculo de ranking dinámico de tenis, utilizando un sistema de rating competitivo inspirado en Elo, desarrollado como proyecto con enfoque DevOps end-to-end.
 
-Durante el desarrollo se refactorizó la configuración para eliminar credenciales hardcodeadas y moverlas a variables de entorno y secretos de Kubernetes.
+> ⚠️
+> Durante el desarrollo se refactorizó la configuración para eliminar credenciales hardcodeadas y utilizar variables de entorno y secretos de Kubernetes.  
+> No se incluyen credenciales reales en este repositorio.
 
 ---
 
